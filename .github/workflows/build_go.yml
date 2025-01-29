@@ -1,0 +1,32 @@
+name: Release Go Binary
+
+on:
+  release:
+    types: [created]
+
+permissions:
+    contents: write
+    packages: write
+
+jobs:
+  releases-matrix:
+    name: Release Go Binary
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Build for major platforms: linux/amd64, windows/amd64, darwin/amd64
+        goos: [linux, windows, darwin]
+        goarch: [amd64]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: wangyoucao577/go-release-action@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        goos: ${{ matrix.goos }}
+        goarch: ${{ matrix.goarch }}
+        binary_name: "clockifill"
+        project_path: "."
+        ldflags: "-s -w"
+        extra_files: README.md
+        md5sum: true
+        sha256sum: true
