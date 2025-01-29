@@ -9,8 +9,8 @@ ClockiFill is a command-line tool that helps automate time entry management in C
 2. Get your Clockify API key:
    - Log into [Clockify](https://clockify.me/)
    - Click on your profile picture in the top right
-   - Go to "Profile Settings"
-   - Scroll down to "API"
+   - Go to "Preferences"
+   - Click on the "Advanced" tab
    - Copy your API key or click "Generate" to create a new one
 
 3. Create a `.env` file in the same directory as the binary:
