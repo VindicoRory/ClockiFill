@@ -65,7 +65,7 @@ Common issues and solutions:
 
 If you want to build the program yourself instead of using the pre-built binaries:
 
-1. Install Go 1.19 or later
+1. Install Go 1.23 or later
 2. Clone the repository
 3. Run:
    ```bash
