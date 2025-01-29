@@ -14,9 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # Build for major platforms: linux/amd64, windows/amd64, darwin/amd64
-        goos: [linux, windows, darwin]
-        goarch: [amd64]
+        # Build for major platforms including Apple Silicon
+        include:
+          - goos: linux
+            goarch: amd64
+          - goos: windows
+            goarch: amd64
+          - goos: darwin
+            goarch: amd64
+          - goos: darwin
+            goarch: arm64
     steps:
     - uses: actions/checkout@v4
     - uses: wangyoucao577/go-release-action@v1
